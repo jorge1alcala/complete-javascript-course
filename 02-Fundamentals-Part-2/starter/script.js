@@ -1,6 +1,6 @@
 
 /*
-// Function declaration
+//🌟 Function declaration
 function calcAge1(birthYear){
   return new Date().getFullYear() - birthYear
 }
@@ -17,7 +17,7 @@ const jorge2 = calcAge2(1971)
 console.log(jorge2); 
 */
 /*
-// Arrow Function
+//🌟 Arrow Function
 const calcAge3 = birthYear => new Date().getFullYear() - birthYear
 // const age3 = calcAge3(1972)
 console.log(calcAge3(1972));
@@ -98,7 +98,7 @@ checkWinner(scoreDolphins, scoreKoalas);
 */
  
 /*
-//  Arrays and Objects are the bigest Data Structures in JavaScript
+// 🌟 Arrays and Objects are the bigest Data Structures in JavaScript
 // arrays holds any value and any type
 // 2 ways to write an Array
 const friends = ['Micheal', 'Steven', 'Peter']
@@ -140,7 +140,7 @@ console.log(ages);
 */
 
 /*
-// // Array Methods ////
+// -->🌟🌟🌟 Array Methods 🌟🌟🌟<-- ////
 // PUSH Method add alements to the end of the array
 const friends = ['Micheal', 'Steven', 'Peter'];
 const newLength = friends.push('Jay'); // the push method is a funtion that not only push a value to the end of the array but also returns a value whish is the length.
@@ -162,10 +162,12 @@ console.log(friends);
 friends.shift()// this will remove the first element
 console.log(friends);
 
+// 🌟 BUSCAR ELEMENTOS EN EL ARRAY //
 // INDEXOF Method
 // INDEXOF will return the index of the element in the array
 console.log(friends.indexOf('Micheal')); // the index of Micheal is 0
 console.log(friends.indexOf('Bob')); // Bob no existe en el array so returns -1
+// FINDINDEX will returns the item of the array of objects wheh indexOf not workss in objects.
 
 // INCLUDES Method
 // Includes method will find an the element and ruturns true or false.
@@ -197,3 +199,206 @@ HINT: Remember that an array needs a value in each position, and that value can 
 
 GOOD LUCK 😀
 */
+/*
+// hice esta funcion pero no me salio los porcentajes pero el segundo ejemplo si salio todo bien como era.
+const bills = []
+const total = []
+const calcTip = function (tip){
+  bills.push(tip)
+  return tip >= 50 && tip <= 300 ? tip * 0.15 : tip * 0.2;
+}
+const tip = [calcTip(125), calcTip(555), calcTip(44)]
+
+console.log(tip);
+console.log(bills);
+console.log(total);
+*/
+
+/*
+// esta es la funcion que si trabaja como quiso el maestro para este challege.
+const calcTip = (bill) => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+
+const bills = [125, 555, 44]
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
+const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
+
+console.log(bills, tips);
+console.log(totals);
+*/
+
+/* -->🌟 OBJETOS <-- */
+/*
+const jorge = {
+  firstName: 'Jorge',
+  lastName: 'Alcala',
+  age: new Date().getFullYear() - 1972,
+  job: 'Web developer',
+  friends: ['Micheel', 'Peter', 'Steven']
+}
+
+console.log(jorge);
+/* const interestedIn = prompt('What do you want to know about Jorge? Choose between, lastName, age, job and friends');
+
+console.log(jorge[interestedIn]);
+
+if (jorge[interestedIn]) {
+  console.log(jorge[interestedIn]);
+}else {
+  console.log('Wrong request! Choose between, lastName, age, job and friends');
+}
+*/
+/*
+jorge.location = "Oregon"
+
+jorge['twitter'] = '@smartway'
+console.log(jorge);
+
+console.log(`${jorge.firstName} has ${jorge.friends.length} friends, and his best friend is ${jorge.friends[0]}`); // cual tiene la preferencia entre operadores? 
+
+// Operator precedent MDN https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+*/
+
+/* -->🌟 OBJECT METHODS<-- */
+/*
+const jorge = {
+  firstName: 'Jorge',
+  lastName: 'Alcala',
+  birthYear: 1972,
+  job: 'Web developer',
+  friends: ['Micheel', 'Peter', 'Steven'],
+  hasDriversLicense: true,
+  
+  // calcAge: function (birthYear) {
+  //   return new Date().getFullYear() - birthYear
+  // }
+  // calcAge: function () {
+  //   return new Date().getFullYear() - this.birthYear
+  // }
+  calcAge: function () {
+    this.age = new Date().getFullYear() - this.birthYear
+    return this.age;
+  },
+
+  getSummary: function (){
+    return `${this.firstName} is a ${this['calcAge']()} old ${this.job} and has ${this.hasDriversLicense ? 'a' : 'no'} driver's license`
+  }
+};
+
+// console.log(jorge.calcAge());// formas de llamar una funcion dentro de un object.
+// console.log(jorge['calcAge']());
+console.log(jorge['calcAge']());
+console.log(jorge.age);// para que este trabaje necesitas llamar la funcion primero.
+
+console.log(jorge.getSummary());
+*/
+
+///////////////////////////////////////
+// Coding Challenge #3
+
+/*
+Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
+
+1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI (the same method on both objects). Store the BMI value to a property, and also return it from the method.
+3. Log to the console who has the higher BMI, together with the full name and the respective BMI. Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
+
+TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
+
+GOOD LUCK 😀
+*/
+/*
+const mark = {
+  firstName : 'Mark',
+  lastName: 'Miller',
+  weight: 78,
+  height: 1.69,
+  calcBMI: function (){
+    this.bmi = this.weight / this.height **2
+    return this.bmi
+  }
+}
+
+const john = {
+  firstName : 'John',
+  lastName: 'Smith',
+  weight: 92,
+  height: 1.95,
+  calcBMI: function (){
+    this.bmi = this.weight / this.height **2
+    return this.bmi
+  }
+}
+john.calcBMI()
+mark.calcBMI()
+
+if (mark.bmi > john.bmi) {
+  console.log(`${mark.firstName} ${mark.lastName}'s BMI (${mark.bmi}) is higher than ${john.firstName} ${john.lastName}'s (${john.bmi})`);
+}else if (john.bmi > mark.bmi) {
+  console.log(`${john.firstName} ${john.lastName}'s BMI (${john.bmi}) is higher than ${mark.firstName} ${mark.lastName}'s (${mark.bmi})`);
+}
+
+// const markBMI = mark.weight / mark.height ** 2;
+// const johnBMI = john.weight / john.height ** 2;
+console.log(mark.bmi, john.bmi);
+*/
+
+/* -->🌟 The FOR loop<-- */
+/*
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights repetition ${rep} 🏋🏻‍♂️`); 
+}
+*/
+/*
+const jorge = ['Jorge', 'Alcala', new Date().getFullYear() - 1972, 'CarSales', ['Micheal', 'Peter', 'Steven'], true];
+
+const type = []
+for (let i = 0; i < jorge.length; i++) {
+  const element = jorge[i];
+  // console.log(element, typeof jorge[i]);
+
+  type[i] = typeof jorge[i]
+  // type.push(typeof jorge[i])
+}
+console.log(type);
+
+
+const years = [1972,2007,1969,2020]
+const ages = []
+for (let i = 0; i < years.length; i++) {
+  const element = years[i];
+  ages.push(new Date().getFullYear() - element)
+}
+console.log(ages);
+
+// -->🌟 continue and break https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/22648291
+console.log('--- ONLY STRINGS---');
+for (let i = 0; i < jorge.length; i++) {
+  const element = jorge[i];
+  if (typeof jorge[i] !== 'string') continue;
+    console.log(element, typeof element);  
+}
+
+console.log('--- BREAK WITH NUMBER ---');
+for (let i = 0; i < jorge.length; i++) {
+  const element = jorge[i];
+  if (typeof jorge[i] === 'number') break;
+    console.log(element, typeof element);  
+}
+*/
+
+// -->🌟 Looping Backwards
+const jorge = ['Jorge', 'Alcala', new Date().getFullYear() - 1972, 'CarSales', ['Micheal', 'Peter', 'Steven']];
+
+for (let i = jorge.length-1; i >= 0; i--) {
+  const element = jorge[i];
+  console.log(i, element);
+}
+
+// -->🌟 Looping inside loops
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`-------- Start exercise ${exercise}`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${exercise}: Lifting weight repetition ${rep} 🏋🏻‍♂️`);
+  }
+}
