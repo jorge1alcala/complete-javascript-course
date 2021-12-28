@@ -481,12 +481,7 @@ const whereAmI = async function () {
     const res = await fetch(
       `https://restcountries.eu/rest/v2/name/${dataGeo.country}`
     );
-    
-    // BUG in video:
-    // if (!resGeo.ok) throw new Error('Problem getting country');
-    
-    // FIX:
-    if (!res.ok) throw new Error('Problem getting country');
+    if (!resGeo.ok) throw new Error('Problem getting country');
 
     const data = await res.json();
     console.log(data);

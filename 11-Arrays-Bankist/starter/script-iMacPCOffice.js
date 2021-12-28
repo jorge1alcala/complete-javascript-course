@@ -66,46 +66,20 @@ const displyMovements = function(movements){
   movements.forEach((mov, i) => {
     const type = mov > 0 ? 'deposit' : 'withdrawal'    ;
     const html = `
-       <div class="movements__row">
-          <div class="movements__type movements__type--${type}">
-          ${i + 1} ${type}</div>
-          
-          <div class="movements__value">${mov}€</div>
-        </div>    
+      <div class="movements__row">
+        <div class="movements__type movements__type--${type}">
+        ${i + 1} ${type}</div>
+        
+        <div class="movements__value">${mov}€</div>
+      </div>    
     `;
 
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 }
 
-displyMovements(account1.movements);
+displyMovements(account1.movements)
 
-const calcPrintBalance = function(movements){
-  const balance = movements.reduce((acc, cur) =>  acc + cur, 0)
-  labelBalance.textContent = `${balance}€`
-  console.log(balance);
-}
-calcPrintBalance(account1.movements)
-
-
-// crea el user name de cada cuenta 
-const createUserName = function (accs){
-  accs.forEach(function(acc){
-    acc.userName = acc.owner.toLowerCase().split(' ').map(name => name[0]).join('');
-  })
-}
-createUserName(accounts)
-console.log(accounts);
-
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-/////////////////////////////////////////////////
-/*
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
@@ -117,12 +91,15 @@ console.log(juliaData.slice(1, -2))
 const dataJulia = juliaData.slice(1, -2)
 console.log(dataJulia);
 
+
 const kateData1 = [4, 1, 15, 8, 3]
 const kateData2 = [10, 5, 6, 1, 4]
 const kateData = [...kateData1, ...kateData2]
 console.log(kateData);
 const juliaKate = [...kateData, ...dataJulia]
 console.log(juliaKate);
+
+
 
 const checkDogs = function(dogsJulia, dogsKate) {
   const juliaKate = [...dogsJulia, ...dogsKate]
@@ -134,8 +111,16 @@ const checkDogs = function(dogsJulia, dogsKate) {
 }
 checkDogs(dataJulia, kateData)
 
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// LECTURES
 
 
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+/////////////////////////////////////////////////
+/*
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
 // SLICE
@@ -204,19 +189,3 @@ currencies.forEach(function(value, key, map){
 })
 const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR'])
 */
-
-// the REDUCE method
-// const balace2 = movements.reduce((acc, cur, i, arr) => {
-//   console.log(`Iteration ${i}: ${acc}`);
-//   return acc + cur; 
-// }, 0)
-// REDUCE Con funcion de flecha
-const balace2 = movements.reduce((acc, cur) => acc + cur, 0)
-console.log(`este es el balance: ${balace2}`);
-
-// manualmente con FOR en vez de REDUCE
-let balance3 = 0
-for (const mov of movements) {
-  balance3 += mov
-}
-console.log(balance3);
